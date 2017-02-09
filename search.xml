@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[《腾讯传》的感悟]]></title>
+      <url>%2F2014%2F08%2F%E8%BF%91%E6%9C%9F%E7%9A%84%E6%84%9F%E6%82%9F.html</url>
+      <content type="text"><![CDATA[近来看一本书叫《腾讯传》。讲腾讯从创立到现在的历史。颇有所得，也不在认为腾讯靠抄袭起家，确实是靠不断的微创新和良好的产品体验起来的。 小步快跑，试错迭代，一年下来产品就做成了马化腾这么说，也是这么做的。他还说过，互联网跟软件不一样，它能不断升级换代，这是无可比拟的优势。程序员们和产品经理们也从来没有安逸，在不断提升技术，改善体验中。QQ的成功离不开持续的努力。 不要盲目创新马化腾认为做好的产品在世上早已存在，模仿最成功的案例，然后再不断创新就可以成功。过于激进的创新很难让市场接受，同时也要思考用户真的需要创新技术，能够带来好的服务吗。 所有人都是在边做边学马化腾早期安排一个创始人攻克信息传输加密的技术。过了几个星期，马化腾去这个人家里，发现这个人出去了，桌子上翻开着一本书，马化腾拿起一看，书上写着“第一章 什么是加密”； 客户端不再重要，互联网上游的价值将重新崛起马化腾认为依靠一个QQ客户端，一个渠道就能成功的故事，不会再存在。价值链在互联网产业链正在上移。如果未来只依靠你的客户端，那么这个企业将步入一个巨大危机。哪怕是互联网的垄断企业，处境也并不安全。 需要的是服务马化腾坚信互联网是服务他人的，服务重于技术。他要求关注用户体验，产品经理要关注每周10个用户体验博客，100个用户邮件，与1000个用户的有效沟通。产品经理把自己当成傻瓜，任何使用都要简单，不要让用户动脑思考该怎么用。一个按钮放在左边还是右边要测试很久。在设计上他也推崇极简，他提到，软件只要谈谈的美术效果就好了。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[用iframe做了一个代码预览的功能]]></title>
+      <url>%2F2014%2F08%2F%E7%94%A8iframe%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E9%A2%84%E8%A7%88%E7%9A%84%E5%8A%9F%E8%83%BD.html</url>
+      <content type="text"><![CDATA[受到前端网的代码预览启发,我也用iframe做了一个代码预览的功能.首先,设置html结构如下12345678910111213141516171819202122232425262728&lt;textarea&gt;html内容&lt;/textarea&gt;&lt;script type="text/javascript"&gt; function changeTemp()&#123; var html=$('textarea').val(); var reg1=/&amp;lt;/g; var reg2=/&amp;gt;/g; var reg3=/&amp;amp;/g; var a; while(a=reg1.exec(html))&#123; //将被转义的符号替换回来 html=html.replace(reg1,"&lt;"); html=html.replace(reg2,"&gt;"); html=html.replace(reg3,"&amp;"); &#125; //发送ajax; $.ajax(&#123; type:'post', url:'getArticle.php', data:&#123;html:html&#125;, success:function(result)&#123; &#125; &#125;);&#125; changeTemp();&lt;/script&gt;&lt;!--先不要设置iframe的src,等文档全部加载完成,也就是服务器做好处理之后,再给iframe引用--&gt;&lt;iframe&gt;&lt;/iframe&gt; 然后,服务器的getArticle.php脚本做出处理,根据textarea的值,修改temp.html的内容.temp.html由服务器在服务器内部生成iframe最后是要引用temp.html.1234567891011&lt;?php error_reporting(E_ALL^E_NOTICE^E_WARNING);//这段代码让php的错误不在网页显示 if($_POST['html'])&#123; $str=$_POST['html'];//html代码 $file='temp.html'; file_put_contents($file,$str);//根据$str的内容生成文件 &#125;?&gt; 最后,在页面加载完毕之后,设置iframe的src.123$(function()&#123; $('iframe').attr('src','temp.html'); &#125;); 这样,就可以在网页上预览前端代码的整个网页效果了 另外,PHP5.4之前的版本,会自动对get,post的数据进行转义,如果你不想看到诸如:/“,/‘这样的符号出现在代码中,可以在php.ini中设置magic_quotes_gpc=Off.当然也有其它的办法,我暂时只了解这一种.实在不行就升级PHP版本,这是历史遗留问题.]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[选中文本背景色和代码标签]]></title>
+      <url>%2F2014%2F07%2F%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E8%83%8C%E6%99%AF%E8%89%B2%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A0%87%E7%AD%BE.html</url>
+      <content type="text"><![CDATA[伪元素::selection123456p::selection,h1::selection&#123; background-color: #B1DFD5; &#125;p::-moz-selection,h1::-moz-selection&#123; background-color: #B1DFD5;&#125; 使用这段代码,网站的p标签里文字被选择是背景是绿色的.-moz-为兼容火狐浏览器 响应式网站使用了两套甚至多套代码code和pre标签,能够像markdown那些显示代码 这两个标签是专门用来告诉浏览器里面的内容是代码.区别有: 1.pre标签能显示多行代码,code标签显示单行代码, 2.pre标签能识别代码里面的换行符和空格,保留原来的样式,而code标签不会. 这里是pre标签的效果 &lt;pre&gt; 输入这段代码就有下面的效果 输入这段代码就有下面的效果&lt;/pre&gt;下面是code的效果&lt;code&gt;输入这段代码就有下面的效果&lt;/code&gt;下面是IDE里面的源代码]]></content>
+    </entry>
+
+    
+  
+  
+</search>

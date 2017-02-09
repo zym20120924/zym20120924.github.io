@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://www.futuremagic.xyz/2014/08/%E8%BF%91%E6%9C%9F%E7%9A%84%E6%84%9F%E6%82%9F.html</loc>
+    <lastmod>2017-02-05T14:14:34.775Z</lastmod>
+    <data>
+        <display>
+        <title>《腾讯传》的感悟</title>
+        <pubTime>2014-08-14T12:43:25.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="散文" url="http://www.futuremagic.xyz/categories/%E6%95%A3%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://www.futuremagic.xyz/2014/07/%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC%E8%83%8C%E6%99%AF%E8%89%B2%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A0%87%E7%AD%BE.html</loc>
+    <lastmod>2017-02-04T08:34:12.348Z</lastmod>
+    <data>
+        <display>
+        <title>选中文本背景色和代码标签</title>
+        <pubTime>2014-07-13T12:46:25.000Z</pubTime>
+        
+        <tag>文本变色</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://www.futuremagic.xyz/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.futuremagic.xyz/2014/08/%E7%94%A8iframe%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E9%A2%84%E8%A7%88%E7%9A%84%E5%8A%9F%E8%83%BD.html</loc>
+    <lastmod>2017-02-04T08:33:37.522Z</lastmod>
+    <data>
+        <display>
+        <title>用iframe做了一个代码预览的功能</title>
+        <pubTime>2014-08-13T12:46:25.000Z</pubTime>
+        
+        <tag>预览</tag>
+         
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://www.futuremagic.xyz/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
