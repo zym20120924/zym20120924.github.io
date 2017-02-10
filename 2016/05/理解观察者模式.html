@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="预览,php," />
+  <meta name="keywords" content="预览,观察者模式," />
 
 
 
@@ -84,16 +84,46 @@
 
 
 
-<meta name="description" content="受到前端网的代码预览启发,我也用iframe做了一个代码预览的功能.首先,设置html结构如下12345678910111213141516171819202122232425262728&amp;lt;textarea&amp;gt;html内容&amp;lt;/textarea&amp;gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    function changeTemp()&amp;#123">
+<meta name="description" content="理解观察者模式
+场景
+定义
+现实生活中的观察者模式
+其实我们用过观察者模式
+为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？
+jQuery自定义事件
+自己实现pub/sub模式
+MVC
+
+场景假设我们正在构建一个类似word的网页版的文字处理程序。每当用户按下一个键时，都要做很多事情，新键入的字符必须显示在屏幕上，插入点必须向后移动，这次键入的动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用iframe做了一个代码预览的功能">
-<meta property="og:url" content="http://www.futuremagic.xyz/2014/08/用iframe做了一个代码预览的功能.html">
+<meta property="og:title" content="理解观察者模式">
+<meta property="og:url" content="http://www.futuremagic.xyz/2016/05/理解观察者模式.html">
 <meta property="og:site_name" content="赵伟仁的博客">
-<meta property="og:description" content="受到前端网的代码预览启发,我也用iframe做了一个代码预览的功能.首先,设置html结构如下12345678910111213141516171819202122232425262728&amp;lt;textarea&amp;gt;html内容&amp;lt;/textarea&amp;gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    function changeTemp()&amp;#123">
-<meta property="og:updated_time" content="2017-02-04T08:33:37.522Z">
+<meta property="og:description" content="理解观察者模式
+场景
+定义
+现实生活中的观察者模式
+其实我们用过观察者模式
+为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？
+jQuery自定义事件
+自己实现pub/sub模式
+MVC
+
+场景假设我们正在构建一个类似word的网页版的文字处理程序。每当用户按下一个键时，都要做很多事情，新键入的字符必须显示在屏幕上，插入点必须向后移动，这次键入的动">
+<meta property="og:updated_time" content="2017-02-10T09:20:19.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用iframe做了一个代码预览的功能">
-<meta name="twitter:description" content="受到前端网的代码预览启发,我也用iframe做了一个代码预览的功能.首先,设置html结构如下12345678910111213141516171819202122232425262728&amp;lt;textarea&amp;gt;html内容&amp;lt;/textarea&amp;gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    function changeTemp()&amp;#123">
+<meta name="twitter:title" content="理解观察者模式">
+<meta name="twitter:description" content="理解观察者模式
+场景
+定义
+现实生活中的观察者模式
+其实我们用过观察者模式
+为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？
+jQuery自定义事件
+自己实现pub/sub模式
+MVC
+
+场景假设我们正在构建一个类似word的网页版的文字处理程序。每当用户按下一个键时，都要做很多事情，新键入的字符必须显示在屏幕上，插入点必须向后移动，这次键入的动">
 
 
 
@@ -121,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://www.futuremagic.xyz/2014/08/用iframe做了一个代码预览的功能.html"/>
+  <link rel="canonical" href="http://www.futuremagic.xyz/2016/05/理解观察者模式.html"/>
 
 
 
 
 
-  <title> 用iframe做了一个代码预览的功能 | 赵伟仁的博客 </title>
+  <title> 理解观察者模式 | 赵伟仁的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2014/08/用iframe做了一个代码预览的功能.html">
+  <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2016/05/理解观察者模式.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="赵伟仁">
@@ -295,7 +325,7 @@
             
             
               
-                用iframe做了一个代码预览的功能
+                理解观察者模式
               
             
           </h1>
@@ -308,8 +338,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-08-13T20:46:25+08:00">
-                2014-08-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-31T21:46:46+08:00">
+                2016-05-31
               </time>
             
 
@@ -342,8 +372,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2014/08/用iframe做了一个代码预览的功能.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/用iframe做了一个代码预览的功能.html" itemprop="commentCount"></span>
+                <a href="/2016/05/理解观察者模式.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/理解观察者模式.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -353,7 +383,7 @@
 
           
           
-             <span id="/2014/08/用iframe做了一个代码预览的功能.html" class="leancloud_visitors" data-flag-title="用iframe做了一个代码预览的功能">
+             <span id="/2016/05/理解观察者模式.html" class="leancloud_visitors" data-flag-title="理解观察者模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,12 +408,33 @@
       
 
       
-        <p>受到前端网的代码预览启发,我也用iframe做了一个代码预览的功能.<br>首先,设置html结构如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">textarea</span>&gt;</span>html内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">    function changeTemp()&#123;</div><div class="line">    var html=$('textarea').val();</div><div class="line">    var reg1=/&amp;lt;/g;</div><div class="line">    var reg2=/&amp;gt;/g;</div><div class="line">    var reg3=/&amp;amp;/g;</div><div class="line">    var a;</div><div class="line">    while(a=reg1.exec(html))&#123;</div><div class="line">        //将被转义的符号替换回来</div><div class="line">        html=html.replace(reg1,"<span class="tag">&lt;<span class="name">");</span></span></div><div class="line">        <span class="attr">html</span>=<span class="string">html.replace(reg2,</span>"&gt;");</div><div class="line">        html=html.replace(reg3,"&amp;");</div><div class="line">    &#125;</div><div class="line">    //发送ajax;</div><div class="line">    $.ajax(&#123;</div><div class="line">        type:'post',</div><div class="line">        url:'getArticle.php',</div><div class="line">        data:&#123;html:html&#125;,</div><div class="line"></div><div class="line">        success:function(result)&#123;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">    changeTemp();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--先不要设置iframe的src,等文档全部加载完成,也就是服务器做好处理之后,再给iframe引用--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<a id="more"></a> 
-<p>然后,服务器的getArticle.php脚本做出处理,根据textarea的值,修改temp.html的内容.temp.html由服务器在服务器内部生成iframe最后是要引用temp.html.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    error_reporting(E_ALL^E_NOTICE^E_WARNING);<span class="comment">//这段代码让php的错误不在网页显示</span></div><div class="line">    <span class="keyword">if</span>($_POST[<span class="string">'html'</span>])&#123;</div><div class="line">         $str=$_POST[<span class="string">'html'</span>];<span class="comment">//html代码</span></div><div class="line">         $file=<span class="string">'temp.html'</span>;</div><div class="line"></div><div class="line">         file_put_contents($file,$str);<span class="comment">//根据$str的内容生成文件</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p>最后,在页面加载完毕之后,设置iframe的src.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="string">'iframe'</span>).attr(<span class="string">'src'</span>,<span class="string">'temp.html'</span>);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
-<p>这样,就可以在网页上预览前端代码的整个网页效果了</p>
-<p>另外,PHP5.4之前的版本,会自动对get,post的数据进行转义,如果你不想看到诸如:/“,/‘这样的符号出现在代码中,可以在php.ini中设置<code>magic_quotes_gpc=Off</code>.当然也有其它的办法,我暂时只了解这一种.实在不行就升级PHP版本,这是历史遗留问题.</p>
+        <h3 id="理解观察者模式"><a href="#理解观察者模式" class="headerlink" title="理解观察者模式"></a>理解观察者模式</h3><ul>
+<li>场景</li>
+<li>定义</li>
+<li>现实生活中的观察者模式</li>
+<li>其实我们用过观察者模式</li>
+<li>为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</li>
+<li>jQuery自定义事件</li>
+<li>自己实现pub/sub模式</li>
+<li>MVC</li>
+</ul>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>假设我们正在构建一个类似word的网页版的文字处理程序。每当用户按下一个键时，都要做很多事情，新键入的字符必须显示在屏幕上，插入点必须向后移动，这次键入的动作必须推入本地的撤销动作历历记录，且必须与服务器进行同步，拼写检查功能也必须运行起来，字数统计和页数统计也需要加以更新。用一个keypress来实现所有的这些任务甚至更多的任务，这显然会令人望而却步。<br>这个时候，我们可以采用观察者模式。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+<h3 id="现实生活中的观察者模式"><a href="#现实生活中的观察者模式" class="headerlink" title="现实生活中的观察者模式"></a>现实生活中的观察者模式</h3><ul>
+<li>订阅报纸</li>
+<li>秘书</li>
+</ul>
+<h3 id="其实我们用过观察者模式"><a href="#其实我们用过观察者模式" class="headerlink" title="其实我们用过观察者模式"></a>其实我们用过观察者模式</h3><ul>
+<li>addEventListener</li>
+<li>on,off</li>
+<li>jQuery的自定义事件</li>
+</ul>
+<h3 id="为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"><a href="#为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？" class="headerlink" title="为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"></a>为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var oBtn = document.querySelector(&apos;#btn&apos;);</div><div class="line">oBtn.onclick = function()&#123;</div><div class="line">    //task a;</div><div class="line">    //task b;</div><div class="line">    //task c;</div><div class="line">    //task d;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>像上面这样写代码的缺点：容易写出来全能型的事件回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var oBtn = document.querySelector(&apos;#btn&apos;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务a;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务b;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务c;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务d;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="jQuery自定义事件"><a href="#jQuery自定义事件" class="headerlink" title="jQuery自定义事件"></a>jQuery自定义事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;button&quot; id=&quot;btn&quot;&gt;</div><div class="line">    &lt;script src=&quot;node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        //要想触发这个事件，可以在浏览器的控制台里输入$(&apos;#btn&apos;).triggerHandler(&apos;itcast&apos;)</div><div class="line">        $(&apos;#btn&apos;).on(&apos;itcast&apos;,function()&#123;</div><div class="line">            alert(&apos;itcast事件类型被触发&apos;);</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="自己实现pub-sub模式"><a href="#自己实现pub-sub模式" class="headerlink" title="自己实现pub/sub模式"></a>自己实现pub/sub模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;button&quot; id=&quot;btn&quot;&gt;</div><div class="line">    &lt;script src=&quot;node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        var PubSub = &#123;handlers:&#123;&#125;&#125;;</div><div class="line">        PubSub.on = function(eventType,handler)&#123;</div><div class="line">            if(!(eventType in this.handlers))&#123;</div><div class="line">                this.handlers[eventType] = [];</div><div class="line">            &#125;</div><div class="line">            this.handlers[eventType].push(handler);</div><div class="line">            return this;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        PubSub.triggerHandler = function(eventType)&#123;</div><div class="line">            if(!(eventType in this.handlers))&#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">            this.handlers[eventType].forEach(function(ele,index)&#123;</div><div class="line">                ele();</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        PubSub.on(&apos;click&apos;,function()&#123;</div><div class="line">            alert(111);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        PubSub.on(&apos;click&apos;,function()&#123;</div><div class="line">            alert(333);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        PubSub.triggerHandler(&apos;click&apos;);</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC的核心关注点就是数据，当数据发生改变的时候，需要去通知我们的视图，这时候就可以采用我们的观察者模式。</p>
 
       
     </div>
@@ -409,7 +460,7 @@
           
             <a href="/tags/预览/" rel="tag"># 预览</a>
           
-            <a href="/tags/php/" rel="tag"># php</a>
+            <a href="/tags/观察者模式/" rel="tag"># 观察者模式</a>
           
         </div>
       
@@ -418,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/07/选中文本背景色和代码标签.html" rel="next" title="选中文本背景色和代码标签">
-                <i class="fa fa-chevron-left"></i> 选中文本背景色和代码标签
+              <a href="/2014/08/近期的感悟.html" rel="next" title="《腾讯传》的感悟">
+                <i class="fa fa-chevron-left"></i> 《腾讯传》的感悟
               </a>
             
           </div>
@@ -428,8 +479,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/08/近期的感悟.html" rel="prev" title="《腾讯传》的感悟">
-                《腾讯传》的感悟 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/git工具小结.html" rel="prev" title="git工具小结">
+                git工具小结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -445,10 +496,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2014/08/用iframe做了一个代码预览的功能.html"
-     data-title="用iframe做了一个代码预览的功能"
+        <div class="ds-share flat" data-thread-key="2016/05/理解观察者模式.html"
+     data-title="理解观察者模式"
      data-content=""
-     data-url="http://www.futuremagic.xyz/2014/08/用iframe做了一个代码预览的功能.html">
+     data-url="http://www.futuremagic.xyz/2016/05/理解观察者模式.html">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -478,8 +529,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2014/08/用iframe做了一个代码预览的功能.html"
-           data-title="用iframe做了一个代码预览的功能" data-url="http://www.futuremagic.xyz/2014/08/用iframe做了一个代码预览的功能.html">
+      <div class="ds-thread" data-thread-key="2016/05/理解观察者模式.html"
+           data-title="理解观察者模式" data-url="http://www.futuremagic.xyz/2016/05/理解观察者模式.html">
       </div>
     
   </div>
@@ -503,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -577,6 +637,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解观察者模式"><span class="nav-number">1.</span> <span class="nav-text">理解观察者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#场景"><span class="nav-number">2.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现实生活中的观察者模式"><span class="nav-number">4.</span> <span class="nav-text">现实生活中的观察者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其实我们用过观察者模式"><span class="nav-number">5.</span> <span class="nav-text">其实我们用过观察者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"><span class="nav-number">6.</span> <span class="nav-text">为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery自定义事件"><span class="nav-number">7.</span> <span class="nav-text">jQuery自定义事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己实现pub-sub模式"><span class="nav-number">8.</span> <span class="nav-text">自己实现pub/sub模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">9.</span> <span class="nav-text">MVC</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

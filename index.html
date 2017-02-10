@@ -272,12 +272,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2017/02/理解观察者模式.html">
+  <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2017/01/如何打包seajs代码.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="赵伟仁">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
+    <meta itemprop="image" content="/images/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -297,8 +297,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/理解观察者模式.html" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2017/01/如何打包seajs代码.html" itemprop="url">
+                  如何打包seajs代码
                 </a>
               
             
@@ -312,8 +312,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T17:34:03+08:00">
-                2017-02-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-15T23:00:00+08:00">
+                2017-01-15
               </time>
             
 
@@ -328,8 +328,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/02/理解观察者模式.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/理解观察者模式.html" itemprop="commentCount"></span>
+                <a href="/2017/01/如何打包seajs代码.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/如何打包seajs代码.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -339,7 +339,7 @@
 
           
           
-             <span id="/2017/02/理解观察者模式.html" class="leancloud_visitors" data-flag-title="">
+             <span id="/2017/01/如何打包seajs代码.html" class="leancloud_visitors" data-flag-title="如何打包seajs代码">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -366,34 +366,30 @@
       
         
           
-            <p>###理解观察者模式</p>
-<ul>
-<li>场景</li>
-<li>定义</li>
-<li>现实生活中的观察者模式</li>
-<li>其实我们用过观察者模式</li>
-<li>为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</li>
-<li>jQuery自定义事件</li>
-<li>自己实现pub/sub模式</li>
-<li>MVC</li>
+            <ul>
+<li>github源码地址</li>
+<li>说明</li>
+<li>package.json示例如下：</li>
+<li>开发阶段代码如下<ul>
+<li>index.html代码示例</li>
+<li>包装jquery.js</li>
+<li>主模块main.js</li>
+<li>第三方模块a.js代码如下：</li>
 </ul>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>假设我们正在构建一个类似word的网页版的文字处理程序。每当用户按下一个键时，都要做很多事情，新键入的字符必须显示在屏幕上，插入点必须向后移动，这次键入的动作必须推入本地的撤销动作历历记录，且必须与服务器进行同步，拼写检查功能也必须运行起来，字数统计和页数统计也需要加以更新。用一个keypress来实现所有的这些任务甚至更多的任务，这显然会令人望而却步。<br>这个时候，我们可以采用观察者模式。</p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
-<h3 id="现实生活中的观察者模式"><a href="#现实生活中的观察者模式" class="headerlink" title="现实生活中的观察者模式"></a>现实生活中的观察者模式</h3><ul>
-<li>订阅报纸</li>
-<li>秘书</li>
+</li>
+<li>上线打包阶段</li>
 </ul>
-<h3 id="其实我们用过观察者模式"><a href="#其实我们用过观察者模式" class="headerlink" title="其实我们用过观察者模式"></a>其实我们用过观察者模式</h3><ul>
-<li>addEventListener</li>
-<li>on,off</li>
-<li>jQuery的自定义事件</li>
-</ul>
-<h3 id="为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"><a href="#为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？" class="headerlink" title="为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"></a>为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var oBtn = document.querySelector(&apos;#btn&apos;);</div><div class="line">oBtn.onclick = function()&#123;</div><div class="line">    //task a;</div><div class="line">    //task b;</div><div class="line">    //task c;</div><div class="line">    //task d;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>像上面这样写代码的缺点：容易写出来全能型的事件回调函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var oBtn = document.querySelector(&apos;#btn&apos;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务a;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务b;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务c;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务d;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="jQuery自定义事件"><a href="#jQuery自定义事件" class="headerlink" title="jQuery自定义事件"></a>jQuery自定义事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;button&quot; id=&quot;btn&quot;&gt;</div><div class="line">    &lt;script src=&quot;node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        //要想触发这个事件，可以在浏览器的控制台里输入$(&apos;#btn&apos;).triggerHandler(&apos;itcast&apos;)</div><div class="line">        $(&apos;#btn&apos;).on(&apos;itcast&apos;,function()&#123;</div><div class="line">            alert(&apos;itcast事件类型被触发&apos;);</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="自己实现pub-sub模式"><a href="#自己实现pub-sub模式" class="headerlink" title="自己实现pub/sub模式"></a>自己实现pub/sub模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;button&quot; id=&quot;btn&quot;&gt;</div><div class="line">    &lt;script src=&quot;node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        var PubSub = &#123;handlers:&#123;&#125;&#125;;</div><div class="line">        PubSub.on = function(eventType,handler)&#123;</div><div class="line">            if(!(eventType in this.handlers))&#123;</div><div class="line">                this.handlers[eventType] = [];</div><div class="line">            &#125;</div><div class="line">            this.handlers[eventType].push(handler);</div><div class="line">            return this;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        PubSub.triggerHandler = function(eventType)&#123;</div><div class="line">            if(!(eventType in this.handlers))&#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">            this.handlers[eventType].forEach(function(ele,index)&#123;</div><div class="line">                ele();</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        PubSub.on(&apos;click&apos;,function()&#123;</div><div class="line">            alert(111);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        PubSub.on(&apos;click&apos;,function()&#123;</div><div class="line">            alert(333);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        PubSub.triggerHandler(&apos;click&apos;);</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC的核心关注点就是数据，当数据发生改变的时候，需要去通知我们的视图，这时候就可以采用我们的观察者模式。</p>
+<h3 id="github源码地址"><a href="#github源码地址" class="headerlink" title="github源码地址"></a>github源码地址</h3><p><a href="https://github.com/black-pony/seajs-gulp-pack" target="_blank" rel="external">https://github.com/black-pony/seajs-gulp-pack</a><br><a href="https://github.com/black-pony/seajs-gulp-pack" target="_blank" rel="external">github源码地址</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>大家先把我的代码下载下来，对着这篇文档搞明白了再去玩自己的项目，否则会遇到问题的</p>
+<h3 id="package-json示例如下："><a href="#package-json示例如下：" class="headerlink" title="package.json示例如下："></a>package.json示例如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;iheima&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;keywords&quot;: [],</div><div class="line">  &quot;author&quot;: &quot;&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;jquery&quot;: &quot;^3.1.1&quot;,</div><div class="line">    &quot;seajs&quot;: &quot;^3.0.2&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-cmd-pack&quot;: &quot;^1.0.9&quot;,</div><div class="line">    &quot;gulp-uglify&quot;: &quot;^2.0.0&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="开发阶段代码如下"><a href="#开发阶段代码如下" class="headerlink" title="开发阶段代码如下"></a>开发阶段代码如下</h3><h3 id="index-html代码示例"><a href="#index-html代码示例" class="headerlink" title="index.html代码示例"></a>index.html代码示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;./node_modules/seajs/dist/sea-debug.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        seajs.config(&#123;</div><div class="line">            base:&apos;./js&apos;,</div><div class="line">            alias:&#123;</div><div class="line">                jquery:&apos;../node_modules/jquery/dist/jquery&apos;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        seajs.use(&apos;main&apos;);</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="包装jquery-js"><a href="#包装jquery-js" class="headerlink" title="包装jquery.js"></a>包装jquery.js</h3><p>这块直接拷贝我包装好的文件，不要自己尝试去修改，否则打包好了会报错的</p>
+<h3 id="主模块main-js"><a href="#主模块main-js" class="headerlink" title="主模块main.js"></a>主模块main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(function(require,module,exports)&#123;</div><div class="line">    &quot;use strict&quot;;</div><div class="line">    var a = require(&apos;./a&apos;);</div><div class="line">    $(document).click(function()&#123;</div><div class="line">        alert(&apos;1&apos;);</div><div class="line">    &#125;);</div><div class="line">    console.log(2322);</div><div class="line">    console.log(a);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="第三方模块a-js代码如下："><a href="#第三方模块a-js代码如下：" class="headerlink" title="第三方模块a.js代码如下："></a>第三方模块a.js代码如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(function(require,exports,module)&#123;</div><div class="line">    &quot;use strict&quot;;</div><div class="line">    module.exports = &#123;title:22&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="上线打包阶段"><a href="#上线打包阶段" class="headerlink" title="上线打包阶段"></a>上线打包阶段</h3><p>1.修改index.html代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;./node_modules/seajs/dist/sea-debug.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        // seajs.config(&#123;</div><div class="line">        //     base:&apos;./js&apos;,</div><div class="line">        //     alias:&#123;</div><div class="line">        //         jquery:&apos;../node_modules/jquery/dist/jquery&apos;</div><div class="line">        //     &#125;</div><div class="line">        // &#125;);</div><div class="line">        // seajs.use(&apos;main&apos;);</div><div class="line"></div><div class="line">         seajs.config(&#123;</div><div class="line">            base:&apos;./dist/&apos;</div><div class="line">        &#125;);</div><div class="line">        seajs.use(&apos;main&apos;)</div><div class="line"></div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>1.gulpfile.js如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;;</div><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var cmdPack = require(&apos;gulp-cmd-pack&apos;);</div><div class="line">var uglify = require(&apos;gulp-uglify&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;cmd&apos;, function () &#123;</div><div class="line">    gulp.src(&apos;./js/main.js&apos;) //main文件 </div><div class="line">        .pipe(cmdPack(&#123;</div><div class="line">            mainId: &apos;main&apos;, //初始化模块的id </div><div class="line">            base: &apos;./js&apos;, //base路径 </div><div class="line">            alias: &#123;</div><div class="line">                jquery: &apos;../node_modules/jquery/dist/jquery&apos;</div><div class="line">            &#125;</div><div class="line">        &#125;))</div><div class="line">        .pipe(uglify(&#123; //压缩文件，这一步是可选的 </div><div class="line">            mangle: &#123;</div><div class="line">                except: [&apos;require&apos;]</div><div class="line">            &#125;</div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(&apos;./dist&apos;));//输出到目录 </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
           
         
@@ -437,7 +433,7 @@
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="赵伟仁">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
+    <meta itemprop="image" content="/images/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -695,12 +691,189 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2016/05/理解观察者模式.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="赵伟仁">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="赵伟仁的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="赵伟仁的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/理解观察者模式.html" itemprop="url">
+                  理解观察者模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-31T21:46:46+08:00">
+                2016-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/05/理解观察者模式.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/理解观察者模式.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/理解观察者模式.html" class="leancloud_visitors" data-flag-title="理解观察者模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="理解观察者模式"><a href="#理解观察者模式" class="headerlink" title="理解观察者模式"></a>理解观察者模式</h3><ul>
+<li>场景</li>
+<li>定义</li>
+<li>现实生活中的观察者模式</li>
+<li>其实我们用过观察者模式</li>
+<li>为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</li>
+<li>jQuery自定义事件</li>
+<li>自己实现pub/sub模式</li>
+<li>MVC</li>
+</ul>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>假设我们正在构建一个类似word的网页版的文字处理程序。每当用户按下一个键时，都要做很多事情，新键入的字符必须显示在屏幕上，插入点必须向后移动，这次键入的动作必须推入本地的撤销动作历历记录，且必须与服务器进行同步，拼写检查功能也必须运行起来，字数统计和页数统计也需要加以更新。用一个keypress来实现所有的这些任务甚至更多的任务，这显然会令人望而却步。<br>这个时候，我们可以采用观察者模式。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+<h3 id="现实生活中的观察者模式"><a href="#现实生活中的观察者模式" class="headerlink" title="现实生活中的观察者模式"></a>现实生活中的观察者模式</h3><ul>
+<li>订阅报纸</li>
+<li>秘书</li>
+</ul>
+<h3 id="其实我们用过观察者模式"><a href="#其实我们用过观察者模式" class="headerlink" title="其实我们用过观察者模式"></a>其实我们用过观察者模式</h3><ul>
+<li>addEventListener</li>
+<li>on,off</li>
+<li>jQuery的自定义事件</li>
+</ul>
+<h3 id="为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"><a href="#为什么DOM-2-0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？" class="headerlink" title="为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？"></a>为什么DOM 2.0会抛弃了onXXX系列的事件类型而转投到addEventListener的怀抱？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var oBtn = document.querySelector(&apos;#btn&apos;);</div><div class="line">oBtn.onclick = function()&#123;</div><div class="line">    //task a;</div><div class="line">    //task b;</div><div class="line">    //task c;</div><div class="line">    //task d;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>像上面这样写代码的缺点：容易写出来全能型的事件回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var oBtn = document.querySelector(&apos;#btn&apos;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务a;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务b;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务c;</div><div class="line">&#125;);</div><div class="line">oBtn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">    //任务d;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="jQuery自定义事件"><a href="#jQuery自定义事件" class="headerlink" title="jQuery自定义事件"></a>jQuery自定义事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;button&quot; id=&quot;btn&quot;&gt;</div><div class="line">    &lt;script src=&quot;node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        //要想触发这个事件，可以在浏览器的控制台里输入$(&apos;#btn&apos;).triggerHandler(&apos;itcast&apos;)</div><div class="line">        $(&apos;#btn&apos;).on(&apos;itcast&apos;,function()&#123;</div><div class="line">            alert(&apos;itcast事件类型被触发&apos;);</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="自己实现pub-sub模式"><a href="#自己实现pub-sub模式" class="headerlink" title="自己实现pub/sub模式"></a>自己实现pub/sub模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;button&quot; id=&quot;btn&quot;&gt;</div><div class="line">    &lt;script src=&quot;node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        var PubSub = &#123;handlers:&#123;&#125;&#125;;</div><div class="line">        PubSub.on = function(eventType,handler)&#123;</div><div class="line">            if(!(eventType in this.handlers))&#123;</div><div class="line">                this.handlers[eventType] = [];</div><div class="line">            &#125;</div><div class="line">            this.handlers[eventType].push(handler);</div><div class="line">            return this;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        PubSub.triggerHandler = function(eventType)&#123;</div><div class="line">            if(!(eventType in this.handlers))&#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">            this.handlers[eventType].forEach(function(ele,index)&#123;</div><div class="line">                ele();</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        PubSub.on(&apos;click&apos;,function()&#123;</div><div class="line">            alert(111);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        PubSub.on(&apos;click&apos;,function()&#123;</div><div class="line">            alert(333);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        PubSub.triggerHandler(&apos;click&apos;);</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC的核心关注点就是数据，当数据发生改变的时候，需要去通知我们的视图，这时候就可以采用我们的观察者模式。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2014/08/近期的感悟.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="赵伟仁">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
+    <meta itemprop="image" content="/images/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -856,7 +1029,7 @@
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="赵伟仁">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
+    <meta itemprop="image" content="/images/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -997,163 +1170,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.futuremagic.xyz/2014/07/选中文本背景色和代码标签.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="赵伟仁">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="赵伟仁的博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="赵伟仁的博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/07/选中文本背景色和代码标签.html" itemprop="url">
-                  选中文本背景色和代码标签
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-07-13T20:46:25+08:00">
-                2014-07-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2014/07/选中文本背景色和代码标签.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/选中文本背景色和代码标签.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/07/选中文本背景色和代码标签.html" class="leancloud_visitors" data-flag-title="选中文本背景色和代码标签">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>伪元素::selection<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::selection</span>,<span class="selector-tag">h1</span><span class="selector-pseudo">::selection</span>&#123;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#B1DFD5</span>;</div><div class="line">    &#125;</div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::-moz-selection</span>,<span class="selector-tag">h1</span><span class="selector-pseudo">::-moz-selection</span>&#123;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#B1DFD5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用这段代码,网站的p标签里文字被选择是背景是绿色的.-moz-为兼容火狐浏览器</p>
-<p>响应式网站使用了两套甚至多套代码<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/07/选中文本背景色和代码标签.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1191,7 +1207,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
+               src="/images/avatar.jpg"
                alt="赵伟仁" />
           <p class="site-author-name" itemprop="name">赵伟仁</p>
           <p class="site-description motion-element" itemprop="description">分享IE兼容、CSS、JavaScript学习心得</p>
@@ -1199,7 +1215,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1216,7 +1232,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1239,7 +1255,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/zhao-wei-ren" target="_blank" title="知乎">
+                <a href="http://www.zhihu.com/people/zhao-wei-ren-10/activities" target="_blank" title="知乎">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
